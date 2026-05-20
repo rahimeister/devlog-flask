@@ -1,0 +1,55 @@
+body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+.navbar {
+    background-color: #6f42c1 !important;
+}
+
+.card {
+    background-color: #16213e;
+    border-color: #6f42c1;
+    color: #e0e0e0;
+}
+
+.btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+.btn-primary:hover {
+    background-color: #5a32a3;
+    border-color: #5a32a3;
+}
+
+a {
+    color: #a78bfa;
+}
+
+.jumbotron {
+    background-color: #16213e;
+    color: #ffffff;
+}
+
+.jumbotron p {
+    color: #e0e0e0;
+}
+
+.table {
+    color: #ffffff;
+}
+
+.table thead th {
+    color: #a78bfa;
+    border-color: #6f42c1;
+}
+
+.table tbody td {
+    border-color: #2d2d4e;
+    color: #e0e0e0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(111, 66, 193, 0.1);
+}

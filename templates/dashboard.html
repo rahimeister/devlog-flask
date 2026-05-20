@@ -1,0 +1,45 @@
+ {% extends "layout.html" %}
+{% block body %}
+
+
+<h2>Kontrol Paneli</h2>
+<p>Hoş geldiniz, </b> {{ session ['username'] }}!</p>
+
+<a href = "{{ url_for('addarticle')}}" class="btn btn-primary">Yeni Makale Ekle</a>
+
+{% if articles %}
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Başlık</th>
+            <th>Kategori</th>
+            <th>Yayın Tarihi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ article.title }}</td>
+            <td>{{ article.category }}</td>
+            <td>{{ article.created_date }}</td>
+            <td>
+                <a href="{{ url_for('editarticle', id=article.id) }}" class="btn btn-sm btn-warning">Düzenle</a>
+                <a href="{{ url_for('deletearticle', id=article.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Bu makaleyi silmek istediğinize emin misiniz?');">Sil</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+ </table>
+{% else %}
+<div class="alert alert-info mt-3">
+    Henüz makaleniz yok. <a href="{{ url_for('addarticle') }}">İlk makalenizi ekleyin!</a>
+</div>
+{% endif %}   
+
+
+
+
+{% endblock %}

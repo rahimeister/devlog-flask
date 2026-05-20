@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="jumbotron mt-4">
+    <h1 class="display-4">DevLog'a Hoş Geldiniz!</h1>
+    <p class="lead">Yazılım öğrenme sürecinde edindiğin bilgileri, kod parçalarını ve notları düzenli şekilde saklayabileceğin kişisel öğrenme günlüğü platformu.</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Hemen Başla</a>
+    <a class="btn btn-secondary btn-lg ml-2" href="{{ url_for('articles') }}" role="button">Yazıları Gör</a>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">📝 Öğrendiklerini Kaydet</h5>
+                <p class="card-text">Python, Flask ve MySQL notlarını tek yerde tut.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">💻 Kod Parçalarını Sakla</h5>
+                <p class="card-text">CKEditor ile öğrendiğin kod örneklerini yazılarına ekle.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">📊 Gelişimini Takip Et</h5>
+                <p class="card-text">Kontrol panelinden tüm yazılarını yönet.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

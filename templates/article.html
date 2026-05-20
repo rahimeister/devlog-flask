@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>{{ article.title }}</h2>
+<small class="text-muted">
+    <b>Yazar:</b> {{ article.author }} | 
+    <b>Kategori:</b> {{ article.category }} | 
+    <b>Tarih:</b> {{ article.created_date }}
+</small>
+<hr>
+<div>
+    {{ article.content | safe }}
+</div>
+<a href="{{ url_for('articles') }}" class="btn btn-secondary mt-3">Geri Dön</a>
+
+{% endblock body %}

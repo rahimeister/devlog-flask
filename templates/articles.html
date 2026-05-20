@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>Makaleler</h2>
+
+<!-- ARAMA KUTUSU -->
+<form action="{{ url_for('articles') }}" method="GET" class="mb-4">
+    <div class="input-group">
+        <input type="text" class="form-control" name="keyword" 
+               placeholder="Makale ara..." value="{{ keyword }}">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Ara</button>
+        </div>
+    </div>
+</form>
+
+{% if keyword %}
+<p>"<b>{{ keyword }}</b>" için {{ articles|length }} sonuç bulundu.</p>
+{% endif %}
+
+{% if articles %}
+<div class="row">
+    {% for article in articles %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">
+                    <small class="text-muted">
+                        <b>Yazar:</b> {{ article.author }} | 
+                        <b>Kategori:</b> {{ article.category }}
+                    </small>
+                </p>
+                <a href="{{ url_for('article', id=article.id) }}" class="btn btn-primary btn-sm">Devamını Oku</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info">
+    {% if keyword %}
+        "<b>{{ keyword }}</b>" için sonuç bulunamadı.
+    {% else %}
+        Henüz hiç makale eklenmemiş.
+    {% endif %}
+</div>
+{% endif %}
+
+{% endblock body %}
